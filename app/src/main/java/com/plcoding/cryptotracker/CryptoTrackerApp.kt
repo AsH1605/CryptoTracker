@@ -10,7 +10,7 @@ class CryptoTrackerApp: Application() {
 
     override fun onCreate() {
         super.onCreate()
-        startKoin {
+        startKoin{
             androidContext(this@CryptoTrackerApp)
             androidLogger()
 

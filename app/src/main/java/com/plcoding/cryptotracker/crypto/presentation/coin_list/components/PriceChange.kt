@@ -18,7 +18,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.plcoding.cryptotracker.crypto.presentation.models.DisplayableNumber
@@ -30,26 +29,26 @@ fun PriceChange(
     change: DisplayableNumber,
     modifier: Modifier = Modifier
 ) {
-    val contentColor = if(change.value < 0.0) {
+    val contentColor = if (change.value < 0.0) {
         MaterialTheme.colorScheme.onErrorContainer
     } else {
         Color.Green
     }
-    val backgroundColor = if(change.value < 0.0) {
+    val backgroundColor = if (change.value < 0.0) {
         MaterialTheme.colorScheme.errorContainer
     } else {
         greenBackground
     }
 
     Row(
-        modifier = modifier
+        modifier = Modifier
             .clip(RoundedCornerShape(100f))
             .background(backgroundColor)
             .padding(horizontal = 4.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Icon(
-            imageVector = if(change.value < 0.0) {
+            imageVector = if (change.value < 0.0) {
                 Icons.Default.KeyboardArrowDown
             } else {
                 Icons.Default.KeyboardArrowUp
@@ -67,14 +66,14 @@ fun PriceChange(
     }
 }
 
-@PreviewLightDark
+@Preview
 @Composable
-private fun PriceChangePreview() {
+private fun PriceChangePrev() {
     CryptoTrackerTheme {
         PriceChange(
             change = DisplayableNumber(
                 value = 2.43,
-                formatted = "2.43"
+                formatted = "2.43 %"
             )
         )
     }
