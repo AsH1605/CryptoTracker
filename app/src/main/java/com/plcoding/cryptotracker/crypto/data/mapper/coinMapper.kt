@@ -22,6 +22,6 @@ fun CoinDto.toCoin(): Coin {
 fun CoinPriceDto.toCoinPrice(): CoinPrice {
     return CoinPrice(
         priceUsd = priceUsd,
-        DateTime = Instant.ofEpochMilli(time).atZone(ZoneId.of("IST"))
+        DateTime = Instant.ofEpochMilli(time).atZone(ZoneId.systemDefault())
     )
 }
